@@ -1266,7 +1266,7 @@ var Mangosteem = (function () {
 
     //Steem Connect app credentials
     const SC_APP_NAME = 'mangosteem';
-    const SC_CALLBACK_URL = 'http://alpha.mangosteem.chat';
+    const SC_CALLBACK_URL = document.location;
 
     var initSteemConnect = function () {
         App.log('Mangosteem');
