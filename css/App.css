@@ -1,0 +1,491 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden; }
+
+.clear {
+  clear: both; }
+
+.glyphicon-spin {
+  -webkit-animation: spin 1000ms infinite linear;
+  animation: spin 1000ms infinite linear; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+.App {
+  width: 100%;
+  height: 100%;
+  visibility: hidden; }
+
+.App .LeftSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  color: #FFFFFF;
+  background: #624B6B; }
+
+.App .LeftSidebar .User {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 75px;
+  color: #FAEFFF;
+  max-height: 75px;
+  background: #533D5B;
+  white-space: nowrap; }
+  .App .LeftSidebar .User .avatar {
+    float: left;
+    width: 35px;
+    height: 35px;
+    padding: 20px 10px; }
+    .App .LeftSidebar .User .avatar img {
+      width: 100%;
+      height: auto;
+      border-radius: 7px; }
+  .App .LeftSidebar .User .name {
+    float: left;
+    width: 140px;
+    height: 75px;
+    line-height: 75px;
+    margin: 0;
+    padding: 0;
+    font-size: .9em;
+    overflow-x: hidden; }
+  .App .LeftSidebar .User .login-logout-button {
+    float: left;
+    display: table;
+    width: 55px;
+    height: 75px;
+    font-size: 1.4em;
+    text-align: center; }
+    .App .LeftSidebar .User .login-logout-button:hover {
+      color: #E29C45;
+      background: #4B3554;
+      cursor: pointer; }
+    .App .LeftSidebar .User .login-logout-button .glyphicon {
+      display: table-cell;
+      vertical-align: middle;
+      height: 75px; }
+
+.App .LeftSidebar .ChannelList {
+  position: fixed;
+  top: 75px;
+  left: 0;
+  width: 240px;
+  height: calc(100vh - 75px - 75px);
+  margin: 0 0 0 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #FFFFFF; }
+  .App .LeftSidebar .ChannelList .channel-list-group .channel-list-group-name {
+    margin-bottom: 10px; }
+  .App .LeftSidebar .ChannelList .channel-list-group ul.channel-list {
+    margin-top: 10px;
+    padding: 0;
+    list-style-type: none;
+    white-space: nowrap; }
+    .App .LeftSidebar .ChannelList .channel-list-group ul.channel-list li {
+      padding: 5px 10px; }
+      .App .LeftSidebar .ChannelList .channel-list-group ul.channel-list li:hover {
+        background: #533D5B; }
+    .App .LeftSidebar .ChannelList .channel-list-group ul.channel-list li.active {
+      background: #6F557A; }
+
+.App .LeftSidebar .Footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: #FAEFFF;
+  width: 250px;
+  height: 75px;
+  background: #533D5B; }
+  .App .LeftSidebar .Footer .logo {
+    float: left;
+    height: 55px;
+    width: 55px;
+    padding: 10px; }
+    .App .LeftSidebar .Footer .logo img {
+      width: 100%;
+      height: auto; }
+  .App .LeftSidebar .Footer .branding {
+    float: left;
+    width: LeftSidebar-width-75px-80px;
+    padding-top: 18px; }
+    .App .LeftSidebar .Footer .branding .app-name {
+      margin: 0 0 5px 0;
+      padding: 0;
+      font-size: 1.1em; }
+    .App .LeftSidebar .Footer .branding .slogan {
+      margin: 0;
+      padding: 0;
+      font-size: .7em; }
+
+.App .Chat .ChatHeader .LeftSiderbarToggle {
+  float: left;
+  display: table;
+  height: 75px;
+  width: 55px;
+  font-size: 1.4em;
+  text-align: center; }
+  .App .Chat .ChatHeader .LeftSiderbarToggle:hover {
+    color: #E29C45; }
+  .App .Chat .ChatHeader .LeftSiderbarToggle .glyphicon {
+    display: table-cell;
+    vertical-align: middle;
+    height: 75px; }
+
+.App .RightSidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: none;
+  width: 35px;
+  color: #533D5B;
+  background: #ECF0F1;
+  border-left: 1px solid #D8D8D8; }
+  .App .RightSidebar .button {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center; }
+    .App .RightSidebar .button:hover {
+      color: white;
+      background: gray; }
+      .App .RightSidebar .button:hover:hover {
+        background: #E29C45;
+        cursor: pointer; }
+
+.App .Chat {
+  height: 100%;
+  margin: 0 0 0 250px;
+  background: #FFFFFF; }
+
+.App .Chat .ChatHeader {
+  height: 75px;
+  background: #ECF0F1;
+  white-space: nowrap; }
+  .App .Chat .ChatHeader .LeftSiderbarToggle {
+    float: left;
+    display: table;
+    height: 75px;
+    width: 55px;
+    font-size: 1.4em;
+    text-align: center; }
+    .App .Chat .ChatHeader .LeftSiderbarToggle:hover {
+      color: #E29C45; }
+    .App .Chat .ChatHeader .LeftSiderbarToggle .glyphicon {
+      display: table-cell;
+      vertical-align: middle;
+      height: 75px; }
+  .App .Chat .ChatHeader .channel-name {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 75px; }
+
+.App .Chat .ChatBox {
+  height: calc(100vh - 75px - 75px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 0;
+  padding: 0 25px; }
+  .App .Chat .ChatBox .loading {
+    height: 60px;
+    background-image: url("../img/loading-more.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .App .Chat .ChatBox .beginning {
+    text-align: center;
+    font-style: italic;
+    margin: 25px 0;
+    color: #624B6B; }
+  .App .Chat .ChatBox .new-messages-temp-button {
+    position: absolute;
+    right: 45px;
+    bottom: 85px;
+    width: 9em;
+    margin: 0 auto;
+    padding: 5px;
+    color: white;
+    background: #533D5B;
+    border-radius: .8em;
+    text-align: center;
+    -webkit-box-shadow: 0px 4px 5px 0px #949494;
+    -moz-box-shadow: 0px 4px 5px 0px #949494;
+    box-shadow: 0px 4px 5px 0px #949494; }
+    .App .Chat .ChatBox .new-messages-temp-button i {
+      font-size: .7em; }
+    .App .Chat .ChatBox .new-messages-temp-button:hover {
+      background-color: #E29C45;
+      cursor: pointer; }
+
+.App .Chat .ChatBox .ChatBoxMessage .message-container {
+  margin: 0 0 5px 0;
+  padding: 5px;
+  font-size: .9em;
+  border-radius: 7px; }
+  .App .Chat .ChatBox .ChatBoxMessage .message-container a {
+    color: #624B6B; }
+    .App .Chat .ChatBox .ChatBoxMessage .message-container a:hover {
+      color: #E29C45; }
+  .App .Chat .ChatBox .ChatBoxMessage .message-container pre {
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap; }
+  .App .Chat .ChatBox .ChatBoxMessage .message-container code {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    background: #ECF0F1; }
+  .App .Chat .ChatBox .ChatBoxMessage .message-container .avatar-container {
+    float: left;
+    width: 45px;
+    height: 45px; }
+    .App .Chat .ChatBox .ChatBoxMessage .message-container .avatar-container .avatar {
+      width: 100%;
+      height: auto;
+      border-radius: 7px; }
+  .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container {
+    float: left;
+    width: calc(100% - 70px);
+    margin: 0 0 0 10px; }
+    .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info {
+      margin-bottom: 6px; }
+      .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info a.author {
+        font-weight: bold;
+        color: black;
+        text-decoration: none; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info a.author:hover {
+          color: #624B6B; }
+      .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .message-created {
+        font-size: .8em;
+        color: gray; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .message-created .dd-mm, .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .message-created .yyyy {
+          font-style: italic; }
+      .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .message-option {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 0 0 14px;
+        padding: 0;
+        font-size: 10px;
+        border-radius: 14px; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .message-option:hover {
+          cursor: pointer; }
+      .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .upvote-container {
+        color: #4BA2F2;
+        border: 1px solid #4BA2F2; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .upvote-container i {
+          display: block;
+          top: 2px;
+          margin-left: 2px; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .upvote-container:hover {
+          color: white;
+          background: #4BA2F2; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .upvote-container.complete {
+          color: white;
+          background: #4BA2F2; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .upvote-container.pending {
+          color: #C4C4C4;
+          animation: spin 1s linear infinite;
+          border-color: #C4C4C4; }
+      .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .downvote-container {
+        color: #C4C4C4;
+        font-size: .8em; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .downvote-container:hover {
+          color: red; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .downvote-container.complete {
+          color: red; }
+        .App .Chat .ChatBox .ChatBoxMessage .message-container .content-container .message-info .downvote-container.pending {
+          color: #C4C4C4;
+          animation: spin 1s linear infinite;
+          border-color: #C4C4C4; }
+  .App .Chat .ChatBox .ChatBoxMessage .message-container:hover {
+    background: #f4f4f4; }
+
+.App .Chat .ChatInput {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 75px;
+  background: #ECF0F1; }
+  .App .Chat .ChatInput .login-signup-button {
+    display: inline-block;
+    margin: 20px 0 20px 20px;
+    padding: 10px 1em;
+    border-radius: 7px;
+    border: none;
+    text-decoration: none;
+    color: white;
+    background: gray; }
+    .App .Chat .ChatInput .login-signup-button:hover {
+      background: #E29C45;
+      cursor: pointer; }
+
+.App .Chat .ChatInput .ChatInputTextArea {
+  width: calc(100vw - 250px - 35px - 85px);
+  height: 45px;
+  margin: 10px 10px  0 10px;
+  padding: 5px;
+  font-size: .9em;
+  border-radius: 7px;
+  border: 1px solid #cecccc;
+  resize: none; }
+
+.App .Chat .ChatInput .ChatInputSubmitButton {
+  width: 33px;
+  height: 33px;
+  margin-top: 12px;
+  border-radius: 16.5px;
+  border: none;
+  text-align: center;
+  vertical-align: top;
+  color: white;
+  background: gray; }
+  .App .Chat .ChatInput .ChatInputSubmitButton:hover {
+    background: #E29C45;
+    cursor: pointer; }
+  .App .Chat .ChatInput .ChatInputSubmitButton i.glyphicon-send {
+    margin-left: -.2em; }
+  .App .Chat .ChatInput .ChatInputSubmitButton.disabled {
+    color: #ECF0F1;
+    background: #D9DADB;
+    cursor: auto; }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.6); }
+  .overlay .overlay-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    padding: 10px;
+    overflow-y: scroll;
+    background: white;
+    border-radius: 7px; }
+
+.ChatBoxVoteOverlay {
+  width: 250px; }
+  .ChatBoxVoteOverlay h2 {
+    display: inline-block;
+    margin: 0;
+    width: 80%;
+    margin-top: 3px;
+    font-size: 1.2em;
+    font-weight: normal; }
+  .ChatBoxVoteOverlay .glyphicon {
+    display: absolute;
+    right: 0;
+    float: right;
+    width: 25px;
+    font-size: 25px;
+    border-radius: 7px; }
+    .ChatBoxVoteOverlay .glyphicon:hover {
+      color: #624B6B; }
+  .ChatBoxVoteOverlay hr {
+    clear: both;
+    margin-top: 12px; }
+  .ChatBoxVoteOverlay .vote-slider {
+    margin-top: 12px; }
+    .ChatBoxVoteOverlay .vote-slider .vote-slider-range {
+      width: 190px !important;
+      padding: 2px 5px 5px 0; }
+    .ChatBoxVoteOverlay .vote-slider .vote-slider-value {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: .1em;
+      padding: 2px 0 5px 0; }
+    .ChatBoxVoteOverlay .vote-slider .percent {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: .1em;
+      padding: 2px 5px 5px 0;
+      color: gray; }
+    .ChatBoxVoteOverlay .vote-slider button {
+      float: right;
+      border-radius: 7px;
+      margin-top: 15px;
+      padding: 5px 10px;
+      border: none;
+      color: white;
+      background: gray; }
+      .ChatBoxVoteOverlay .vote-slider button:hover {
+        background: #E29C45;
+        cursor: pointer; }
+
+.ChannelInfoOverlay {
+  min-width: 275px;
+  max_width: 95%; }
+  .ChannelInfoOverlay h2 {
+    display: inline-block;
+    margin: 0;
+    width: 80%;
+    margin-top: 3px;
+    font-size: 1.2em;
+    font-weight: normal; }
+  .ChannelInfoOverlay .glyphicon {
+    display: absolute;
+    right: 0;
+    float: right;
+    width: 25px;
+    font-size: 25px;
+    border-radius: 7px; }
+    .ChannelInfoOverlay .glyphicon:hover {
+      color: #624B6B; }
+  .ChannelInfoOverlay hr {
+    clear: both;
+    margin-top: 12px; }
+  .ChannelInfoOverlay .avatar {
+    text-align: center; }
+    .ChannelInfoOverlay .avatar img {
+      margin: 10px 0 5px 0;
+      padding: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 7px; }
+  .ChannelInfoOverlay h3 {
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0 0 15px 0; }
+  .ChannelInfoOverlay p span {
+    font-weight: bold;
+    font-style: italic; }
+
+/*# sourceMappingURL=App.css.map */
