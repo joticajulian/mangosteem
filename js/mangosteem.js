@@ -1266,7 +1266,7 @@ var Mangosteem = (function () {
 
     //Steem Connect app credentials
     const SC_APP_NAME = 'mangosteem';
-    const SC_CALLBACK_URL = document.location;
+    const SC_CALLBACK_URL = document.location.protocol + '//' + document.location.host + document.location.pathname;
 
     var initSteemConnect = function () {
         App.log('Mangosteem');
