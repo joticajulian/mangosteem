@@ -110,6 +110,16 @@ html, body {
     .App .LeftSidebar .ChannelList .channel-list-group ul.channel-list li.active {
       background: #6F557A; }
 
+
+.App .LeftSidebar .SearchChannel {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 250px;
+  height: 75px;
+  display: -webkit-inline-box;
+}
+	  
 .App .LeftSidebar .Footer {
   position: fixed;
   bottom: 0;

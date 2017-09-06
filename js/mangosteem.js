@@ -893,15 +893,16 @@ var ChannelList = ( function () {
 
     var el = $('.App .LeftSidebar .ChannelList');
 
-    var init = function (hosts) {
+    var init = function (channels) {
         App.log('ChannelList');
-        Mangosteem.getValidHostAccounts(hosts).then(function(result) {
+        /*Mangosteem.getValidHostAccounts(hosts).then(function(result) {
             var validHostAccounts = result;
             validHostAccounts.sort(ascendingByChannelName);
             buildChannelListGroup('Channels', validHostAccounts);
         }).catch(function(error) {
             alert(error);
-        });
+        });*/
+		buildChannelListGroup('Channels', channels);
     };
 
     // Builds and renders channel list group elements
@@ -910,13 +911,13 @@ var ChannelList = ( function () {
         var group = $('<div class="channel-list-group"></div>');
         var title = $('<h3 class="channel-list-group-name">' + channelGroupName + '</h3>');
         var ul = $('<ul class="channel-list"></ul>');
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < channels.length; i++) {
 			/*
 			 * TODO: implement several channels
 			 */
 			var li = $('<li></li>');
-            li.text('# ' + getQuery("channel"));
-            li.data('host', getQuery("account"));		
+            li.text('# ' + channels[i][1]);
+            li.data('host', channels[i][0]);
             li.data('description', "");
             li.data('avatar', "")
             li.click(function () {
@@ -965,11 +966,11 @@ var LeftSidebar = (function () {
 
 	var el = $('.App .LeftSidebar');
 
-	var init = function (hosts) {
+	var init = function (channels) {
 		App.log('LeftSidebar');
 		autoCloseOnSmallerDevices();
 		User.init();
-		ChannelList.init(hosts);
+		ChannelList.init(channels);
 		LeftSidebarToggle.init();
 		el.css('visibility', 'visible');
 	};
@@ -1403,17 +1404,23 @@ var Mangosteem = (function () {
     
 })();
 
-function getQuery(name){
-	var kvp = document.location.search.substr(1).split('&');	
-	if(kvp != ''){	
-		var i = kvp.length; 	
-		var x; 	
-		while (i--) {	
-			x = kvp[i].split('=');			
-			if (x[0] == name){	
-				return x[1];				
-			}
-		}	
+function searchChannel(){
+	var input = document.getElementById("input-channel").value.split('/');	
+	if(input.length < 2){
+		console.log("Syntax error: the query must be author/channel");
+		return;
 	}
-	return "";
+	var channels = [[input[0],input[1]]];
+	
+	LeftSidebar.init(channels);
+	RightSidebar.init();
+	Chat.init();
+	DisplayHelper.showElement(el, true);
 }
+
+document.getElementById('input-account').onkeydown = function(e){   
+   if(e.keyCode == 13){	 
+	 e.preventDefault();
+     searchChannel();
+   }
+};
